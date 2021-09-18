@@ -5,16 +5,16 @@ export default class Post extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({ isPrimary: true })
+  @column()
   public title: string
 
-  @column({ isPrimary: true })
+  @column()
   public author: string
 
-  @column({ isPrimary: true })
+  @column()
   public lyric: string
 
-  @column({ isPrimary: true })
+  @column()
   public cipher_link: string
 
   @column.dateTime({ autoCreate: true })

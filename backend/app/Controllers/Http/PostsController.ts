@@ -14,7 +14,7 @@ export default class PostsController {
     return post
   }
 
-  public async show({ params, response }: HttpContextContract) {
+  public async show({ params }: HttpContextContract) {
     const post = await Post.findOrFail(params.id)
     return post
   }
