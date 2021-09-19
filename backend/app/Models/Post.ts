@@ -1,9 +1,18 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, computed } from '@ioc:Adonis/Lucid/Orm'
+import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
 
 export default class Post extends BaseModel {
-  @column({ isPrimary: true })
+  @column()
   public id: number
+
+  @column({ isPrimary: true })
+  @slugify({
+    strategy: 'simple',
+    fields: ['title'],
+    allowUpdates: true
+  })
+  public slug: string
 
   @column()
   public title: string
