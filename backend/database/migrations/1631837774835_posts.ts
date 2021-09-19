@@ -6,7 +6,8 @@ export default class Posts extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('title').notNullable()
+      table.string('title').notNullable().unique()
+      table.string('slug')
       table.string('author')
       table.text('lyric', 'longtext').notNullable()
       table.string('cipher_link')
